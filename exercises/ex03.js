@@ -6,6 +6,22 @@ const Stack = require('../lib/Stack')
 
 function removeDuplicates(stack) {
   // your code here
+  //temporary stack
+  const tempStack = new Stack();
+  const visibleEle= new Set();
+
+  while(!stack.isEmpty()){
+    const element = stack.pop()
+    if(!visibleEle.has(visibleEle)){
+      visibleEle.add(element);
+      tempStack.push(element);
+    }
+  }
+
+  //from temporary to original
+  while(!tempStack.isEmpty()){
+    stack.push(tempStack.pop())
+  }
 }
 
 // Create stack

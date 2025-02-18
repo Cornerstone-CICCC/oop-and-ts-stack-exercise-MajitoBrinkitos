@@ -6,6 +6,18 @@ const Stack = require('../lib/Stack')
 
 function lowercaseStrings(stack) {
   // your code here
+  //temporary stack
+  const tempStack = new Stack();
+
+  //transfer from original to temporary
+  while(!stack.isEmpty()){
+    const item = stack.pop();
+    tempStack.push(item.toLowerCase());
+  }
+
+  while(!tempStack.isEmpty()){
+    stack.push(tempStack.pop())
+  }
 }
 
 // Create stack
